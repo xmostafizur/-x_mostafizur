@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI SIGNAL HACK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #2980b9, #6dd5fa, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            animation: bgAnimation 6s infinite alternate;
+        }
+
+        @keyframes bgAnimation {
+            0% { background: linear-gradient(120deg, #2980b9, #6dd5fa, #ffffff); }
+            100% { background: linear-gradient(120deg, #6dd5fa, #2980b9, #ffffff); }
+        }
+
+        .login-container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 320px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .password-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #555;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(90deg, #2980b9, #6dd5fa);
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #6dd5fa, #2980b9);
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 10px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .show-error {
+            opacity: 1;
+        }
+
+        .footer {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* ✅ Progress Bar Animation */
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 10px;
+            width: 0%;
+            background: #28a745;
+            transition: width 1s linear;
+        }
+
+        #countdown {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: green;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>লগইন করুন</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">ইউজারনেম</label>
+                <input type="text" id="username" placeholder="আপনার ইউজারনেম দিন" required>
+            </div>
+            <div class="input-group">
+                <label for="password">পাসওয়ার্ড</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="আপনার পাসওয়ার্ড দিন" required>
+                    <span class="toggle-password" onclick="togglePassword()">👁</span>
+                </div>
+            </div>
+            <button type="submit">লগইন</button>
+            <p id="error-message">❌ ইউজারনেম অথবা পাসওয়ার্ড ভুল!</p>
+        </form>
+        
+        <p id="countdown"></p>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Developer by MOSTAFIZUR <br>
+        Admin by REZA
+    </div>
+
+    <audio id="loginSound">
+        <source src="rahiyan.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();  
+
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let errorMessage = document.getElementById("error-message");
+            let countdownText = document.getElementById("countdown");
+            let progressBar = document.getElementById("progressBar");
+            let progressContainer = document.querySelector(".progress-container");
+            let loginSound = document.getElementById("loginSound");
+
+            if (username === "MOSTAFIZUR" && password === "REZA") {
+                alert("✅ লগইন সফল হয়েছে!");
+                loginSound.play();  
+
+                countdownText.style.display = "block"; 
+                progressContainer.style.display = "block";
+                
+                let timeLeft = 30;
+                let progress = 0;
+
+                function updateCountdown() {
+                    if (timeLeft > 0) {
+                        countdownText.innerText = `🚀 ${timeLeft} সেকেন্ড পর স্বয়ংক্রিয়ভাবে হ্যাক চালু হব...`;
+                        progress = ((30 - timeLeft) / 30) * 100;
+                        progressBar.style.width = progress + "%";
+
+                        timeLeft--;
+                        setTimeout(updateCountdown, 1000);
+                    } else {
+                        progressBar.style.width = "100%";
+                        window.location.href = "https://xmostafizur-ai-hack.netlify.app";  
+                    }
+                }
+
+                updateCountdown();
+            } else {
+                errorMessage.classList.add("show-error");
+                setTimeout(() => {
+                    errorMessage.classList.remove("show-error");
+                }, 3000);
+            }
+        });
+
+        function togglePassword() {
+            let passwordInput = document.getElementById("password");
+            passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+        }
+    </script>
+</body>
+</html>
